@@ -4,24 +4,24 @@
 	<meta charset="utf-8">
 	<script>
 		function setSearchEngine (event) {
-			event.preventDefault();
+			
 			let action = {
 				google:"https://www.google.com/search",
 				duckDuckGo: "https://duckduckgo.com/",
 				bing: "https://www.bing.com/search",
 				ask: "https://www.ask.com/web"
 			}
-			const test = document.querySelector("input[name=engine]:checked");
+			const test = document.querySelector("input[name=engine]:checked").value;
 			document.getElementById("searchForm").setAttribute("action", action[test]);
-			console.log(action[test]);
+			
 			
 		}
 		
 		// TODO: create a handler
     window.addEventListener('load', function(){
 		const form = document.getElementById("searchForm");
-		form.addEventListener("submit", setSearchEngine(event));
-					
+		form.addEventListener("submit", setSearchEngine);
+			event.preventDefault();		
     });
 	</script>
 </head>
